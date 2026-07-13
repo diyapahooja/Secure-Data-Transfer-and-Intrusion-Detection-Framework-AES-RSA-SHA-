@@ -1,0 +1,303 @@
+  CIPHERVAULT
+ Intelligent Secure Data Protection Framework
+ AES-256 | RSA | SHA-256 | Digital Signatures
+============================================================
+
+--- MAIN MENU ---  [not logged in]
+
+  Auth
+    1) Register new account
+    2) Login
+    3) Logout
+
+  Cryptography
+    4) Generate RSA keypairs  (encryption + signing)
+    5) Secure File Encryption (AES-256)
+    6) Secure File Recovery
+
+  Monitoring
+    7) View security & alert logs
+    8) Security Analytics Dashboard
+
+  9) Quick demo  (full pipeline, no login required)
+  0) Exit
+
+Choose: 1
+
+=== Register New Account ===
+New username: diya
+Password: ***
+Confirm password: ***
+[+] Account 'diya' created successfully.
+
+--- MAIN MENU ---  [not logged in]
+
+  Auth
+    1) Register new account
+    2) Login
+    3) Logout
+
+  Cryptography
+    4) Generate RSA keypairs  (encryption + signing)
+    5) Secure File Encryption (AES-256)
+    6) Secure File Recovery
+
+  Monitoring
+    7) View security & alert logs
+    8) Security Analytics Dashboard
+
+  9) Quick demo  (full pipeline, no login required)
+  0) Exit
+
+Choose: 2
+
+=== Login ===
+Username: diya
+Password: ***
+[+] Welcome, diya! You are now logged in.
+
+--- MAIN MENU ---  [diya]
+
+  Auth
+    1) Register new account
+    2) Login
+    3) Logout
+
+  Cryptography
+    4) Generate RSA keypairs  (encryption + signing)
+    5) Secure File Encryption (AES-256)
+    6) Secure File Recovery
+
+  Monitoring
+    7) View security & alert logs
+    8) Security Analytics Dashboard
+
+  9) Quick demo  (full pipeline, no login required)
+  0) Exit
+
+Choose: 4
+
+=== Generate RSA Keypairs ===
+This generates TWO keypairs:
+  (A) Encryption keypair  — used to protect the AES session key
+  (B) Signing keypair     — used for digital signatures (RSA-PSS)
+RSA key size for both keypairs (1024 / 2048 / 4096) [default 2048]: 2048
+
+[*] Generating encryption keypair ...
+[+] Encryption keys saved: c:\Users\pahoo\Downloads\IS CCP (1)\IS CCP\CipherVault_Updated\sdtidf\keys\rsa_private.pem, c:\Users\pahoo\Downloads\IS CCP (1)\IS CCP\CipherVault_Updated\sdtidf\keys\rsa_public.pem
+[*] Generating signing keypair ...
+[+] Signing keys saved:    c:\Users\pahoo\Downloads\IS CCP (1)\IS CCP\CipherVault_Updated\sdtidf\keys\sign_private.pem, c:\Users\pahoo\Downloads\IS CCP (1)\IS CCP\CipherVault_Updated\sdtidf\keys\sign_public.pem
+
+[Timing] Encryption key generation: 1.8522s
+
+--- MAIN MENU ---  [diya]
+
+  Auth
+    1) Register new account
+    2) Login
+    3) Logout
+
+  Cryptography
+    4) Generate RSA keypairs  (encryption + signing)
+    5) Secure File Encryption (AES-256)
+    6) Secure File Recovery
+
+  Monitoring
+    7) View security & alert logs
+    8) Security Analytics Dashboard
+
+  9) Quick demo  (full pipeline, no login required)
+  0) Exit
+
+Choose: 5
+
+=== Encrypt Data ===
+Encrypt (1) message you type now  (2) text file from disk [1/2]: 1
+Enter message to encrypt: you are selected
+AES key size in bits (128 / 256) [default 256]: 256
+[*] Encrypting ...
+[*] Signing SHA-256 digest with RSA-PSS ...        key
+[+] Encrypted package saved to: c:\Users\pahoo\Downloads\IS CCP (1)\IS CCP\CipherVault_Updated\sdtidf\data\key
+
+[Summary]
+  SHA-256 hash of plaintext : fa995b002afd2fa9243a2deaf02688e7284886ccbaa1b8110541f36c598e1bae
+  Original size             : 16 bytes
+  Ciphertext size           : 32 bytes
+  AES key size              : 256 bits
+  Encryption time           : 0.0317s
+  Digital signature length  : 256 bytes
+
+--- MAIN MENU ---  [diya]
+
+  Auth
+    1) Register new account
+    2) Login
+    3) Logout
+
+  Cryptography
+    4) Generate RSA keypairs  (encryption + signing)
+    5) Secure File Encryption (AES-256)
+    6) Secure File Recovery
+
+  Monitoring
+    7) View security & alert logs
+    8) Security Analytics Dashboard
+
+  9) Quick demo  (full pipeline, no login required)
+  0) Exit
+
+Choose: 6
+
+=== Decrypt Data ===
+Encrypted package filename [default: encrypted_package.json]: key
+[*] Decrypting ...
+
+[Integrity Check]
+  Stored hash  : fa995b002afd2fa9243a2deaf02688e7284886ccbaa1b8110541f36c598e1bae
+  Computed hash: fa995b002afd2fa9243a2deaf02688e7284886ccbaa1b8110541f36c598e1bae
+  Result       : OK — data was NOT tampered with.
+
+[Digital Signature Verification]
+  Result : VALID — message was signed by 'diya'.
+
+[Timing] Decryption: 0.0966s
+
+Save decrypted content to a file? (y/N): y
+Output filename [default: decrypted_output.txt]: text
+[+] Saved to c:\Users\pahoo\Downloads\IS CCP (1)\IS CCP\CipherVault_Updated\sdtidf\data\text
+
+--- MAIN MENU ---  [diya]
+
+  Auth
+    1) Register new account
+    2) Login
+    3) Logout
+
+  Cryptography
+    4) Generate RSA keypairs  (encryption + signing)
+    5) Secure File Encryption (AES-256)
+    6) Secure File Recovery
+
+  Monitoring
+    7) View security & alert logs
+    8) Security Analytics Dashboard
+
+  9) Quick demo  (full pipeline, no login required)
+  0) Exit
+
+Choose: 7
+
+=== Security Event Log (last 20 entries) ===
+Timestamp              Event                User            Status   Detail
+---------------------------------------------------------------------------
+2026-06-25T16:15:17    REGISTER             admin           OK       New account created
+2026-06-25T16:15:54    LOGIN                admin           OK       Successful login
+2026-06-25T16:16:44    KEY_GEN              admin           OK       Generated 2048-bit RSA keypairs
+2026-06-25T16:18:13    ENCRYPT              admin           OK       Encrypted 15 bytes → C:\Users\mahno\Downloads\CipherVault_Updated\sdtidf\data\key
+2026-06-25T16:21:31    INTEGRITY_CHECK      admin           OK       OK for C:\Users\mahno\Downloads\CipherVault_Updated\sdtidf\data\key
+2026-06-25T16:21:31    VERIFY_SIG           admin           OK       Signature VALID in C:\Users\mahno\Downloads\CipherVault_Updated\sdtidf\data\key
+2026-06-25T16:21:52    DECRYPT              admin           OK       Decrypted C:\Users\mahno\Downloads\CipherVault_Updated\sdtidf\data\key
+2026-07-11T20:31:28    REGISTER             diya            OK       New account created
+2026-07-11T20:31:41    LOGIN                diya            OK       Successful login
+2026-07-11T20:31:58    KEY_GEN              diya            OK       Generated 2048-bit RSA keypairs
+2026-07-11T20:33:21    ENCRYPT              diya            OK       Encrypted 16 bytes → c:\Users\pahoo\Downloads\IS CCP (1)\IS CCP\CipherVault_Updated\sdtidf\data\key
+2026-07-11T20:33:52    INTEGRITY_CHECK      diya            OK       OK for c:\Users\pahoo\Downloads\IS CCP (1)\IS CCP\CipherVault_Updated\sdtidf\data\key
+2026-07-11T20:33:52    VERIFY_SIG           diya            OK       Signature VALID in c:\Users\pahoo\Downloads\IS CCP (1)\IS CCP\CipherVault_Updated\sdtidf\data\key
+2026-07-11T20:34:18    DECRYPT              diya            OK       Decrypted c:\Users\pahoo\Downloads\IS CCP (1)\IS CCP\CipherVault_Updated\sdtidf\data\key
+
+=== Intrusion Detection Alerts ===
+[*] No alerts raised yet.
+
+--- MAIN MENU ---  [diya]
+
+  Auth
+    1) Register new account
+    2) Login
+    3) Logout
+
+  Cryptography
+    4) Generate RSA keypairs  (encryption + signing)
+    5) Secure File Encryption (AES-256)
+    6) Secure File Recovery
+
+  Monitoring
+    7) View security & alert logs
+    8) Security Analytics Dashboard
+
+  9) Quick demo  (full pipeline, no login required)
+  0) Exit
+
+Choose: 8
+
+=== Performance Analysis ===
+
+[Summary Table]
+      operation  count  avg_duration_s  min_duration_s  max_duration_s  avg_data_size_bytes
+    AES_DECRYPT      2        0.081662        0.066706        0.096619                 15.5
+    AES_ENCRYPT      2        0.017000        0.002282        0.031718                 15.5
+KEY_GEN_ENCRYPT      2        1.150831        0.791138        1.510524                  0.0
+   KEY_GEN_SIGN      2        1.934931        1.852158        2.017703                  0.0
+   RSA_PSS_SIGN      2        0.053004        0.046574        0.059434                 15.5
+ RSA_PSS_VERIFY      2        0.001838        0.001763        0.001912                 15.5
+
+[+] Chart saved: c:\Users\pahoo\Downloads\IS CCP (1)\IS CCP\CipherVault_Updated\sdtidf\reports\avg_duration_by_operation.png
+[+] Chart saved: c:\Users\pahoo\Downloads\IS CCP (1)\IS CCP\CipherVault_Updated\sdtidf\reports\aes_decrypt_duration_vs_size.png
+[+] Chart saved: c:\Users\pahoo\Downloads\IS CCP (1)\IS CCP\CipherVault_Updated\sdtidf\reports\aes_encrypt_duration_vs_size.png
+[+] Chart saved: c:\Users\pahoo\Downloads\IS CCP (1)\IS CCP\CipherVault_Updated\sdtidf\reports\key_gen_encrypt_duration_vs_size.png
+[+] Chart saved: c:\Users\pahoo\Downloads\IS CCP (1)\IS CCP\CipherVault_Updated\sdtidf\reports\key_gen_sign_duration_vs_size.png
+[+] Chart saved: c:\Users\pahoo\Downloads\IS CCP (1)\IS CCP\CipherVault_Updated\sdtidf\reports\rsa_pss_sign_duration_vs_size.png
+[+] Chart saved: c:\Users\pahoo\Downloads\IS CCP (1)\IS CCP\CipherVault_Updated\sdtidf\reports\rsa_pss_verify_duration_vs_size.png
+
+--- MAIN MENU ---  [diya]
+
+  Auth
+    1) Register new account
+    2) Login
+    3) Logout
+
+  Cryptography
+    4) Generate RSA keypairs  (encryption + signing)
+    5) Secure File Encryption (AES-256)
+    6) Secure File Recovery
+
+  Monitoring
+    7) View security & alert logs
+    8) Security Analytics Dashboard
+
+  9) Quick demo  (full pipeline, no login required)
+  0) Exit
+
+Choose: 9
+
+=== QUICK DEMO: Full Pipeline ===
+[*] Generating 2048-bit RSA keypairs (encryption + signing) ...
+[*] Plaintext: SDTIDF Demo: AES + RSA + SHA-256 + Digital Signature!
+[+] Encrypted. SHA-256=59a071e550afbbfd9221...
+[+] Signed with RSA-PSS. Signature length: 256 bytes.
+[+] Decrypted: SDTIDF Demo: AES + RSA + SHA-256 + Digital Signature!
+[+] Integrity check : OK
+[+] Signature valid : YES
+
+[Demo complete. All layers verified successfully.]
+
+--- MAIN MENU ---  [diya]
+
+  Auth
+    1) Register new account
+    2) Login
+    3) Logout
+
+  Cryptography
+    4) Generate RSA keypairs  (encryption + signing)
+    5) Secure File Encryption (AES-256)
+    6) Secure File Recovery
+
+  Monitoring
+    7) View security & alert logs
+    8) Security Analytics Dashboard
+
+  9) Quick demo  (full pipeline, no login required)
+  0) Exit
+
+Choose: 0
+Exiting CipherVault. Stay secure.
