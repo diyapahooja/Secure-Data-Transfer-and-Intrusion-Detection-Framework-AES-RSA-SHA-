@@ -1,6 +1,6 @@
 """
 config.py
----------
+# Project Version: 1.0.1
 Central configuration for the Secure Data Transfer and Intrusion
 Detection Framework (SDTIDF).
 
